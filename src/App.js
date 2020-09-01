@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import RegModal from "./components/Modal"
 
-function App() {
+
+const store = {
+  email: "",
+  password: "",
+  password_confirmation: "",
+};
+
+const updateStoreFunc = (state) => {
+  this.email = state.email;
+  this.password = state.password;
+  this.password_confirmation = state.password_confirmation;
+}
+let updateStore = updateStoreFunc.bind(store)
+
+export const Mycontext = React.createContext()
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Mycontext.Provider value={updateStore}>
+      <RegModal />
+    </Mycontext.Provider>
+  )
 }
 
+window.store = store
 export default App;
