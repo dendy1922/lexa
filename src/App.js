@@ -1,30 +1,17 @@
 import React from 'react';
-import RegModal from "./components/Modal"
+import RegModal from "./components/Modal";
+import { MyContext } from "./components/Context";
+import { updateStore } from "./components/store.js";
 
+class App extends React.Component {
 
-const store = {
-  email: "",
-  password: "",
-  password_confirmation: "",
-};
-
-const updateStoreFunc = (state) => {
-  this.email = state.email;
-  this.password = state.password;
-  this.password_confirmation = state.password_confirmation;
-}
-let updateStore = updateStoreFunc.bind(store)
-
-export const Mycontext = React.createContext()
-
-
-const App = () => {
-  return (
-    <Mycontext.Provider value={updateStore}>
-      <RegModal />
-    </Mycontext.Provider>
-  )
+  render() {
+    return (
+      <MyContext.Provider value={updateStore}>
+        <RegModal />
+      </MyContext.Provider>
+    )
+  }
 }
 
-window.store = store
 export default App;

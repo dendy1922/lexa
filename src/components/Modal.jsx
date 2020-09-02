@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import Registration from "./Registration";
+import Prom from "./Prom";
 import Modal from "react-modal";
 import classes from "../App.module.css"
 
 
 Modal.setAppElement("#root")
-
 
 const RegModal = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false)
@@ -27,7 +26,7 @@ const RegModal = () => {
                 overlayClassName={classes.Overlay}
             >
 
-                <Registration />
+                <Prom />
             </Modal >
         </div>
     )

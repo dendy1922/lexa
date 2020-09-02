@@ -1,18 +1,15 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Input from "./Input";
-import { Mycontext } from "./../App"
 
-export default class Registration extends React.Component {
+class Registration extends React.Component {
 
     constructor(props) {
-        let click = this.context;
-        console.log(click);
         super(props);
+        this.updateStoreFunc = props.updateStoreFunc;
         this.state = {
             email: "",
             password: "",
             password_confirmation: "",
-
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -20,6 +17,7 @@ export default class Registration extends React.Component {
 
     handleSubmit(event) {
         console.log("form submitited");
+        this.updateStoreFunc(this.state);
         event.preventDefault();
     }
 
@@ -31,7 +29,6 @@ export default class Registration extends React.Component {
     }
 
     render() {
-
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
@@ -46,12 +43,4 @@ export default class Registration extends React.Component {
 
 }
 
-Registration.contextType = Mycontext;
-
-
-{/* <form onSubmit={this.handleSubmit}>
-  <Input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} />
-  <Input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
-  <Input type="password" name="password_confirmation" placeholder="Confirm password" value={this.state.password_confirmation} onChange={this.handleChange} />
-  <button type="submit">submit</button>
-</form> */}
+export default Registration;
