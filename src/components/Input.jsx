@@ -1,4 +1,5 @@
 import React from "react";
+import classes from "./style.module.css"
 
 export default class Input extends React.Component {
 
@@ -6,7 +7,16 @@ export default class Input extends React.Component {
         return (
 
             <div>
-                <input type={this.props.type} name={this.props.name} value={this.props.value} placeholder={this.props.placeholder} onChange={this.props.onChange} required />
+                <input
+                    type={this.props.type}
+                    name={this.props.name}
+                    placeholder={this.props.placeholder}
+                    value={this.props.value}
+                    onChange={this.props.onChange}
+                />
+                <div className={classes.error}>
+                    {this.props.errorMes}
+                </div>
             </div>
 
         )

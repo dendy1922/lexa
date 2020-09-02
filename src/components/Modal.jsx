@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Prom from "./Prom";
 import Modal from "react-modal";
-import classes from "../App.module.css"
+import classes from "./style.module.css"
 
 
 Modal.setAppElement("#root")

@@ -1,7 +1,7 @@
 import React from 'react';
 import RegModal from "./components/Modal";
 import { MyContext } from "./components/Context";
-import { updateStore } from "./components/store.js";
+import { updateStore } from "./store.js";
 
 class App extends React.Component {
 
