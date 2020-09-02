@@ -1,11 +1,13 @@
 import React from "react";
 import Input from "./Input";
+import Button from "./Button";
 
 class Registration extends React.Component {
 
     constructor(props) {
         super(props);
         this.updateStoreFunc = props.updateStoreFunc;
+        this.submitClose = props.submitClose;
         this.state = {
             email: "",
             password: "",
@@ -18,6 +20,7 @@ class Registration extends React.Component {
     handleSubmit(event) {
         console.log("form submitited");
         this.updateStoreFunc(this.state);
+        this.submitClose();
         event.preventDefault();
     }
 
@@ -35,7 +38,7 @@ class Registration extends React.Component {
                     <Input type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} />
                     <Input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleChange} />
                     <Input type="password" name="password_confirmation" placeholder="Confirm password" value={this.state.password_confirmation} onChange={this.handleChange} />
-                    <button type="submit">submit</button>
+                    <Button type="submit">Submit</Button>
                 </form>
             </div >
         )

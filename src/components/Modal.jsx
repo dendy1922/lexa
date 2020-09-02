@@ -9,6 +9,10 @@ Modal.setAppElement("#root")
 const RegModal = () => {
     const [modalIsOpen, setModalIsOpen] = useState(false)
 
+    function SubmitModal() {
+        setModalIsOpen(false);
+    }
+
     function openModal() {
         setModalIsOpen(true);
     }
@@ -19,14 +23,15 @@ const RegModal = () => {
 
     return (
         <div>
-            <button onClick={openModal}>Open modal</button>
-
+            <div className={classes.button}>
+                <button onClick={openModal}>Register</button>
+            </div>
             <Modal isOpen={modalIsOpen} onRequestClose={closeModal}
                 className={classes.Modal}
                 overlayClassName={classes.Overlay}
             >
 
-                <Prom />
+                <Prom submitClose={SubmitModal} />
             </Modal >
         </div>
     )
